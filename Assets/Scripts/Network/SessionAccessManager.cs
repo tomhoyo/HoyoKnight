@@ -5,9 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TMPro;
 using Unity.Netcode;
-using Unity.Netcode.Transports.UTP;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Network
 {
@@ -25,6 +23,7 @@ namespace Assets.Scripts.Network
 
         public void StartHost()
         {
+            Debug.Log("StartHost");
             NetworkManager.Singleton.StartHost();
         }
 
@@ -35,7 +34,8 @@ namespace Assets.Scripts.Network
 
         public void StartClient()
         {
-            Debug.Log(HostIpAddress);
+            Debug.Log("StartClient at address : " + HostIpAddress);
+
             //Before need to validate the address format. and try a ping.
             //NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address = HostIpAddress;
             NetworkManager.Singleton.StartClient();

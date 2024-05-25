@@ -25,11 +25,13 @@ public class HealthBar : MonoBehaviour
 
     private void Awake()
     {
-        
+        Debug.Log("HealthBar Awake");
     }
 
     public void UpdateHealthBar(float health)
     {
+        Debug.Log("HealthBar UpdateHealthBar");
+
         if (Health != health)
         {
             Health = health;
@@ -39,6 +41,8 @@ public class HealthBar : MonoBehaviour
 
     private void ModifyHealth()
     {
+        Debug.Log("HealthBar ModifyHealth");
+
         foreach (GameObject healthPoint in _healthPoints)
         {
             healthPoint.GetComponent<Animator>().SetBool(AnimationString.HASHEALTHPOINT, true);
@@ -53,24 +57,26 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateMaxHealthBar(float maxHealth)
     {
+        Debug.Log("HealthBar UpdateMaxHealthBar");
 
         if (MaxHealth != maxHealth)
         {
 
             MaxHealth = maxHealth;
-            ModifyMaxHealth();
+            //ModifyMaxHealth();
         }
     }
 
     private void ModifyMaxHealth()
     {
+        Debug.Log("HealthBar ModifyMaxHealth");
 
         if (MaxHealth > _healthPoints.Count )
         {
             int healthPointToAdd = (int) (MaxHealth - _healthPoints.Count);
             for (int i = 0; i < healthPointToAdd; i++)
             {
-                _healthPoints.Add(Instantiate(HealthPoint, new Vector2((_healthPoints.Count+i) * _distanceBetweenHealthPoint, -12), Quaternion.identity, gameObject.transform));
+                //_healthPoints.Add(Instantiate(HealthPoint, new Vector2((_healthPoints.Count+i) * _distanceBetweenHealthPoint, -12), Quaternion.identity, gameObject.transform));
             }
         }
         else if (MaxHealth < _healthPoints.Count )
@@ -78,7 +84,7 @@ public class HealthBar : MonoBehaviour
             int healthPointToRemove = (int)(_healthPoints.Count - MaxHealth);
             for (int i = 0; i < healthPointToRemove; i++)
             {
-                _healthPoints.RemoveAt(_healthPoints.Count - 1);
+                //_healthPoints.RemoveAt(_healthPoints.Count - 1);
             }
         }
     }

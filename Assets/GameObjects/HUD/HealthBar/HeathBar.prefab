@@ -61,7 +61,12 @@ MonoBehaviour:
   _health: 0
   _maxHealth: 0
   HealthPoint: {fileID: 886064211224626421, guid: d3a3e774cc6ff9847a3cf47346e567b4, type: 3}
-  _healthPoints: []
+  _healthPoints:
+  - {fileID: 886064211224626421, guid: d3a3e774cc6ff9847a3cf47346e567b4, type: 3}
+  - {fileID: 886064211224626421, guid: d3a3e774cc6ff9847a3cf47346e567b4, type: 3}
+  - {fileID: 886064211224626421, guid: d3a3e774cc6ff9847a3cf47346e567b4, type: 3}
+  - {fileID: 886064211224626421, guid: d3a3e774cc6ff9847a3cf47346e567b4, type: 3}
+  - {fileID: 886064211224626421, guid: d3a3e774cc6ff9847a3cf47346e567b4, type: 3}
 --- !u!1001 &355365273131044556
 PrefabInstance:
   m_ObjectHideFlags: 0
