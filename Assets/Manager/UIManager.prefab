@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4265203434970540905}
   - component: {fileID: 8189986845344888838}
+  - component: {fileID: 2821925667091812488}
   - component: {fileID: 6922269745603252705}
   m_Layer: 0
   m_Name: UIManager
@@ -43,6 +44,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f552658e9cacc844eba8da198a7c77cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2821925667091812488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010447103902171641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8550bcf349720b4ba5f72c1a740cc41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6922269745603252705
@@ -92,10 +105,10 @@ MonoBehaviour:
     m_ActionName: Player/Dash[/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8189986845344888838}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OnExitGame
-        m_Mode: 0
+      - m_Target: {fileID: 5762819387789952381, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: PauseChangeState
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

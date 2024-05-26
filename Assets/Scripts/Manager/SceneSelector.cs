@@ -12,6 +12,12 @@ public class SceneSelector : MonoBehaviour
         PlayScene(SceneName.TESTGAMEPLAY);
     }
 
+    public void MainMenu()
+    {
+        PlayScene(SceneName.MAINMENU);
+
+    }
+
     public void PlayScene(String scene)
     {
         SceneManager.LoadScene(scene);

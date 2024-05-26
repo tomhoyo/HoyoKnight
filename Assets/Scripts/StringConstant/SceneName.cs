@@ -9,6 +9,8 @@ namespace Assets.Scripts.StringConstant
     internal class SceneName
     {
         internal static String TESTGAMEPLAY = "TestGameplay";
+        internal static String MAINMENU = "MainMenu";
+
 
     }
 }
