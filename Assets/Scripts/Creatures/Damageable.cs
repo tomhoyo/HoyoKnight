@@ -26,7 +26,6 @@ namespace Assets.Scripts.Creatures
             set { 
                 _maxHealth = value;
                 EventMaxHealthModified?.Invoke(_maxHealth);
-
             }
         }
 
