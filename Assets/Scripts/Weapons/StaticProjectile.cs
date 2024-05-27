@@ -9,28 +9,25 @@ using UnityEngine;
 
 namespace Assets.Scripts.Weapons
 {
-    internal class Airblow : Projectile
+    internal class StaticProjectile : Projectile
     {
-        private float damage = 1;
-        private float backlashForce = 15f;
 
         public Vector2 direction;
 
-
         public override void Effect(Collider2D collision)
         {
-            Hitable damageable = collision.GetComponent<Hitable>();
+            Hitable hitable = collision.GetComponent<Hitable>();
 
-            if (damageable != null)
+            if (hitable != null)
             {
-                damageable.Hit(gameObject, damage);
+                hitable.Hit(gameObject, projectileData.damage);
                 Backlash();
             }
         }
 
         private void Backlash()
         {
-            backLash?.Invoke(backlashForce, direction);
+            backLash?.Invoke(projectileData.backlashForce, direction);
         }
     }
 }

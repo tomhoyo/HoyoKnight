@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8529598012178366724
+--- !u!1 &350252341526533254
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7782825758594416122}
-  - component: {fileID: 6813055387680981879}
-  - component: {fileID: 6078250242220123708}
+  - component: {fileID: 2198115469241788536}
+  - component: {fileID: 3174955628250289909}
+  - component: {fileID: 2799313660982555582}
   m_Layer: 7
   m_Name: DownAttack
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7782825758594416122
+--- !u!4 &2198115469241788536
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8529598012178366724}
+  m_GameObject: {fileID: 350252341526533254}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,13 +33,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6813055387680981879
+--- !u!61 &3174955628250289909
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8529598012178366724}
+  m_GameObject: {fileID: 350252341526533254}
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
@@ -78,13 +78,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0218039, y: 1.9168476}
   m_EdgeRadius: 0
---- !u!114 &6078250242220123708
+--- !u!114 &2799313660982555582
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8529598012178366724}
+  m_GameObject: {fileID: 350252341526533254}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4d03f266e29b904995673b4425543ac, type: 3}
@@ -93,7 +93,7 @@ MonoBehaviour:
   backLash:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1062756152467022511, guid: ac4d2c02e0eae1b4a9d62f44093dc65c, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Assets.Scripts.Creatures.PlayerController, Assembly-CSharp
         m_MethodName: Backlash
         m_Mode: 0
@@ -105,4 +105,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  projectileData: {fileID: 11400000, guid: 70ebe27219b2c44449bf4ec0c0f7d2d1, type: 2}
   direction: {x: 0, y: -1}

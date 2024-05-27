@@ -315,6 +315,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5320ebf97436faf4197bfec933d8f75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1668440030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7804037955776741235, guid: 8cfc008cea7ca96469a8f805950f2750, type: 3}
+  m_PrefabInstance: {fileID: 6809892123086816665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1668440039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668440030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d03f266e29b904995673b4425543ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backLash:
+    m_PersistentCalls:
+      m_Calls: []
+  projectileData: {fileID: 11400000, guid: cb695a62ff3d2884b80848f089004696, type: 2}
+  direction: {x: 0, y: 0}
 --- !u!1001 &1960929477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -652,6 +674,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8455482413673965106, guid: ac4d2c02e0eae1b4a9d62f44093dc65c, type: 3}
+      propertyPath: creatureData
+      value: 
+      objectReference: {fileID: 11400000, guid: bfde957e914f7744391fbb23467e1eb1, type: 2}
+    - target: {fileID: 8455482413673965106, guid: ac4d2c02e0eae1b4a9d62f44093dc65c, type: 3}
       propertyPath: EventHealthModified.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1283328602}
@@ -663,8 +689,10 @@ PrefabInstance:
       propertyPath: EventMaxHealthModified.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UpdateMaxHealthBar
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5918428798128509780, guid: ac4d2c02e0eae1b4a9d62f44093dc65c, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 7643435446385010080, guid: ac4d2c02e0eae1b4a9d62f44093dc65c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac4d2c02e0eae1b4a9d62f44093dc65c, type: 3}
@@ -813,6 +841,10 @@ PrefabInstance:
       propertyPath: _maxHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3993840883583487123, guid: e8891b59b35e035468c7e2e070d96f39, type: 3}
+      propertyPath: creatureData
+      value: 
+      objectReference: {fileID: 11400000, guid: f18a6fd5fff19ed41b85a14664421033, type: 2}
     - target: {fileID: 6909899263681343839, guid: e8891b59b35e035468c7e2e070d96f39, type: 3}
       propertyPath: m_Name
       value: TrainningDummy
@@ -1190,7 +1222,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7804037955776741235, guid: 8cfc008cea7ca96469a8f805950f2750, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1668440039}
   m_SourcePrefab: {fileID: 100100000, guid: 8cfc008cea7ca96469a8f805950f2750, type: 3}
 --- !u!1001 &8145429289530819950
 PrefabInstance:

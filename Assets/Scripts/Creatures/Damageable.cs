@@ -13,14 +13,13 @@ namespace Assets.Scripts.Creatures
     [RequireComponent(typeof(Animator))]
     internal class Damageable : MonoBehaviour, Hitable
     {
-       
+        [SerializeField]
+        private CreatureData creatureData;
         public Animator animator;
         public UnityEvent<float> EventHealthModified;
         public UnityEvent<float> EventMaxHealthModified;
         public UnityEvent<GameObject> EventRegisterLastWeaponBeenAttackBy;
 
-
-        [SerializeField]
         private float _maxHealth;
         public float MaxHealth { get { return _maxHealth; } 
             set { 
@@ -29,7 +28,6 @@ namespace Assets.Scripts.Creatures
             }
         }
 
-        [SerializeField]
         private float _health;
         public float Health { get { return _health; } 
             set { 
@@ -40,8 +38,7 @@ namespace Assets.Scripts.Creatures
             }
         }
 
-        [SerializeField]
-        private bool _isAlive = true;
+        private bool _isAlive;
         public bool IsAlive { get { return _isAlive; } 
             set { 
                 _isAlive = value;
@@ -49,7 +46,6 @@ namespace Assets.Scripts.Creatures
             } 
         }
 
-        
         private bool IsInvincible { 
             get 
             {
@@ -62,14 +58,17 @@ namespace Assets.Scripts.Creatures
             } 
         }
 
-        [SerializeField]
         private float lastTimeHit = 0.0f;
-        private float invincibilityTimer = 0.5f;
+        private float invincibilityTimer;
 
         private void Awake()
         {
             animator = GetComponent<Animator>();
-            MaxHealth = MaxHealth;
+
+            MaxHealth = creatureData.MaxHealth;
+            IsAlive = creatureData.IsAlive;
+            invincibilityTimer = creatureData.InvincibilityTimer;
+
             Health = MaxHealth;
         }
 

@@ -17,7 +17,6 @@ namespace Assets.Scripts.Creatures
         public SpriteRenderer _spriteRenderer;
 
         //direction
-        public const float MaxSpeed = 18;
         private int _sense = 1;
         public int Sense
         {
@@ -60,13 +59,6 @@ namespace Assets.Scripts.Creatures
         {
             get { return _animator.GetBool(AnimationString.ISALIVE); }
             set { _animator.SetBool(AnimationString.ISALIVE, value); }
-        }
-
-        public void Awake()
-        {
-          /*_rb = GetComponent<Rigidbody2D>();
-          _animator = GetComponent<Animator>();
-          _spriteRenderer = GetComponent<SpriteRenderer>();*/
         }
 
         public void AllowToMove()

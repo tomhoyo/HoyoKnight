@@ -14,75 +14,91 @@ namespace Assets.Scripts.Creatures
     [RequireComponent(typeof(TouchingDirections))]   
     public class PlayerController : CreatureController
     {
-        public Vector2 _frameVelocity;
-
-        //collision detection
-        private TouchingDirections _direction;  
-
-        //input
-        private float axisX, axisY, jumpInput;
-
-        //direction
-        private float lastDashTime = 0f;
-        private float dashTimer = 0f;
-
-        //dash
-        private bool isDashing = false;
-        private const float airDashPower = 50;
-        private const float airDashTimer = 0.2f; //animation ref
-        private const float airDashCooldown = 0.6f; //hv
-        private float actionLastDashTime = 0f;
-
-        //wall jump
-        private const float wallDashPower = 18f;
-        private const float wallJumpForce = 50f;
-        private const float wallDashTimer = 0.1f;
-        private float lastWalledTime = -1;
-        private const float wallCoyoteTime = 0.2f;
-
-
-        //Backlash
-        private const float backlashDashTimer = 0.1f;
-        private const float PogoJumpForce = 80;
+        private Vector2 _frameVelocity;
 
         //KnockBack
-        private GameObject LastWeaponBeenAttackBy;
+        private GameObject _lastWeaponBeenAttackBy;
+        public GameObject LastWeaponBeenAttackBy { get { return _lastWeaponBeenAttackBy; } private set { _lastWeaponBeenAttackBy = value; } }
 
+        //collision detection
+        private TouchingDirections _direction;
+
+        //input
+        private float _axisX, _axisY, _jumpInput;
+        public float AxisX { get { return _axisX; } private set { _axisX = value; } }
+        public float AxisY { get { return _axisY; } private set { _axisY = value; } }
+        public float JumpInput { get { return _jumpInput; } private set { _jumpInput = value; } }
+
+        //Double jump
+        private bool _canDoubleJump = true;
+        public bool CanDoubleJump { get { return _canDoubleJump; } private set { _canDoubleJump = value; } }
+
+        //direction
+        private float _lastDashTime = 0f;
+        public float LastDashTime { get { return _lastDashTime; } private set { _lastDashTime = value; } }
+        private float _dashTimer = 0f;
+        public float DashTimer { get { return _dashTimer; } private set { _dashTimer = value; } }
+        private const float _maxSpeed = 18;
+
+
+        //dash
+        private const float _airDashPower = 50;
+        private const float _airDashTimer = 0.2f; 
+        private const float _airDashCooldown = 0.6f;
+        private bool _isDashing = false;
+        public bool IsDashing { get { return _isDashing; } private set { _isDashing = value; } }
+        private float _actionLastDashTime = 0f;
+        public float ActionLastDashTime { get { return _actionLastDashTime; } private set { _actionLastDashTime = value; } }
+
+        //wall jump
+        private const float _wallDashPower = 18f;
+        private const float _wallJumpForce = 50f;
+        private const float _wallDashTimer = 0.1f;
+        private float _lastWalledTime = -1;
+        public float LastWalledTime { get { return _lastWalledTime; } private set { _lastWalledTime = value; } }
+        private const float _wallCoyoteTime = 0.2f;
+
+        //Backlash
+        private const float _backlashDashTimer = 0.1f;
+        private const float _pogoJumpForce = 80;
 
         //MainAction
-        private const float mainActionCooldown = 0.41f; //hv
-        private float lastTimeMainAction = 0f;
+        private const float _mainActionCooldown = 0.41f; //hv
+        private float _lastTimeMainAction = 0f;
+        public float LastTimeMainAction { get { return _lastTimeMainAction; } private set { _lastTimeMainAction = value; } }
 
         //jump
         private bool _endedJumpEarly = false;
+        public bool EndedJumpEarly { get { return _endedJumpEarly; } private set { _endedJumpEarly = value; } }
         private bool _jumpToConsume = false;
+        public bool JumpToConsume { get { return _jumpToConsume; } private set { _jumpToConsume = value; } }
         private bool _isHighJumping = false;
-        private const float jumpForce = 50;
-        private const float jumpDeltaTime = 100;
-        private const float jumpEndedEarlyDeltaTime = 350;
-
-        //Double jump
-        private bool CanDoubleJump = true;
+        public bool IsHighJumping { get { return _isHighJumping; } private set { _isHighJumping = value; } }
+        private const float _jumpForce = 50;
+        private const float _jumpDeltaTime = 100;
+        private const float _jumpEndedEarlyDeltaTime = 350;
 
         //jump buffering
-        private const float jumpBufferTime = 0.2f;
-        private float lastJumpTime = -1;
+        private const float _jumpBufferTime = 0.2f;
+        private float _lastJumpTime = -1;
+        public float LastJumpTime { get { return _lastJumpTime; } private set { _lastJumpTime = value; } }
 
         //coyotes system
-        private const float groundCoyoteTime = 0.1f;
-        private float lastGroundedTime = -1;
+        private const float _groundCoyoteTime = 0.1f;
+        private float _lastGroundedTime = -1;
+        public float LastGroundedTime { get { return _lastGroundedTime; } private set { _lastGroundedTime = value; } }
 
         //gravity
-        private bool enableGravity = true;
-        private const float FallDeltaTime = 320;
-        private const float FreeMaxFallSpeed = 30;
-        private const float WallRideMaxFallSpeed = 20;
-        private const float GroundingForce = 0;
-        private const float CeilingBoundingForce = 1;
+        private bool _enableGravity = true;
+        public bool EnableGravity { get { return _enableGravity; } private set { _enableGravity = value; } }
+        private const float _fallDeltaTime = 320;
+        private const float _freeMaxFallSpeed = 30;
+        private const float _wallRideMaxFallSpeed = 20;
+        private const float _groundingForce = 0;
+        private const float _ceilingBoundingForce = 1;
 
-        private new void Awake()
+        private void Awake()
         {
-            //base.Awake();
             _direction = GetComponent<TouchingDirections>();
         }
 
@@ -109,131 +125,126 @@ namespace Assets.Scripts.Creatures
 
         public void HandleCollision()
         {
-            if (!_direction.IsGrounded) _endedJumpEarly = false;
-            else lastGroundedTime = Time.time;
+            if (!_direction.IsGrounded) EndedJumpEarly = false;
+            else LastGroundedTime = Time.time;
 
-            if(_direction.IsLeftWalled || _direction.IsRightWalled) lastWalledTime = Time.time;
+            if(_direction.IsLeftWalled || _direction.IsRightWalled) LastWalledTime = Time.time;
 
-            if (_direction.IsCeiling) _endedJumpEarly = true;
+            if (_direction.IsCeiling) EndedJumpEarly = true;
 
             if (_direction.IsGrounded || _direction.IsLeftWalled || _direction.IsRightWalled) CanDoubleJump = true;
         }
 
         public void Dash()
         {
-            isDashing = true;
-            lastDashTime = Time.time;
-            actionLastDashTime = Time.time;
-            dashTimer = airDashTimer;
-            enableGravity = false;
+            IsDashing = true;
+            LastDashTime = Time.time;
+            ActionLastDashTime = Time.time;
+            DashTimer = _airDashTimer;
+            EnableGravity = false;
             _frameVelocity.y = 0;
 
             _animator.SetTrigger(AnimationString.ISDASHING);
 
             if (IsWallRiding()) Sense = GetWallRideSide();
-            _frameVelocity.x = airDashPower * Sense;
+            _frameVelocity.x = _airDashPower * Sense;
         }
 
         public void OnDash(InputAction.CallbackContext context)
         {
-            if (actionLastDashTime < Time.time - airDashCooldown) Dash();
+            if (ActionLastDashTime < Time.time - _airDashCooldown) Dash();
         }
 
         public void OnHorizontalMove(InputAction.CallbackContext context)
         {
             Debug.Log("OnHorizontalMove");
 
-            axisX = context.ReadValue<float>();
+            AxisX = context.ReadValue<float>();
         }
 
         public void OnVerticalMove(InputAction.CallbackContext context)
         {
-            axisY = context.ReadValue<float>();
+            AxisY = context.ReadValue<float>();
         }
 
         private void HandleDirection()
         {
-            if (IsDashing())
+            if (IsDashing)
             {
                 if (IsDashOver())
-                { 
-                    isDashing = false;
-                    enableGravity = true;
+                {
+                    IsDashing = false;
+                    EnableGravity = true;
                 }
             }
             else
             {
-                _frameVelocity.x = axisX * MaxSpeed;
+                _frameVelocity.x = AxisX * _maxSpeed;
             }
         }
 
         private bool IsDashOver()
         {
-            return lastDashTime < Time.time - dashTimer;
-        }
-
-        private bool IsDashing()
-        {
-            return isDashing;
+            return LastDashTime < Time.time - DashTimer;
         }
 
         public void OnJump(InputAction.CallbackContext context)
         {
-            jumpInput = context.ReadValue<float>();
-            if (jumpInput == 1)
+            JumpInput = context.ReadValue<float>();
+            if (JumpInput == 1)
             {
-                if (!IsJumping()) lastJumpTime = Time.time;
-                _jumpToConsume = true;
+                if (!IsJumping()) LastJumpTime = Time.time;
+                JumpToConsume = true;
             }
         }
 
         private void HandleJump()
         {
-            if (!_endedJumpEarly && !_direction.IsGrounded && !IsHeldingJumpInput() && _rb.velocity.y > 0) _endedJumpEarly = true;
+            if (!EndedJumpEarly && !_direction.IsGrounded && !IsHeldingJumpInput() && _rb.velocity.y > 0) EndedJumpEarly = true;
 
-            if (!_jumpToConsume && !HasBufferedJump()) return;
+            if (!JumpToConsume && !HasBufferedJump()) return;
 
-            if (_direction.IsGrounded || CanUseGroundCoyote()) Jump(jumpForce);
+            if (_direction.IsGrounded || CanUseGroundCoyote()) Jump(_jumpForce);
 
-            if ((IsWallRiding() || CanUseWallCoyote()) && !IsDashing() && !IsJumping() && !_direction.IsGrounded && _jumpToConsume)  WallJump();
+            if ((IsWallRiding() || CanUseWallCoyote()) && !IsDashing && !IsJumping() && !_direction.IsGrounded && JumpToConsume)  WallJump();
 
-            else if (!_direction.IsGrounded && !IsWallRiding() && _jumpToConsume && CanDoubleJump)
+            else if (!_direction.IsGrounded && !IsWallRiding() && JumpToConsume && CanDoubleJump)
             {
                 CanDoubleJump = false;
-                Jump(jumpForce);
+                Jump(_jumpForce);
             }
 
-            _jumpToConsume = false;
+            JumpToConsume = false;
         }
 
         private void Jump(float force)
         {
             _frameVelocity.y = force;
-            _endedJumpEarly = false;
-            lastGroundedTime -= groundCoyoteTime;
-            _isHighJumping = true;
+            EndedJumpEarly = false;
+            LastGroundedTime -= _groundCoyoteTime;
+            IsHighJumping = true;
         }
 
         private void WallJump()
         {
-            isDashing = true;
-            lastDashTime = Time.time;
-            dashTimer = wallDashTimer;
-            lastWalledTime -= wallCoyoteTime;
+            IsDashing = true;
+            LastDashTime = Time.time;
+            DashTimer = _wallDashTimer;
+            LastWalledTime -= _wallCoyoteTime;
 
-            _frameVelocity.x = wallDashPower * GetWallRideSide();
-            Jump(wallJumpForce);
+            _frameVelocity.x = _wallDashPower * GetWallRideSide();
+            Jump(_wallJumpForce);
         }
 
         private bool CanUseGroundCoyote()
         {
-            bool canUseCoyote = (Time.time - lastGroundedTime <= groundCoyoteTime);
+            bool canUseCoyote = (Time.time - LastGroundedTime <= _groundCoyoteTime);
             return canUseCoyote;
         }
 
         private bool CanUseWallCoyote()
         {
-            bool canUseCoyote = (Time.time - lastWalledTime <= wallCoyoteTime);
+            bool canUseCoyote = (Time.time - LastWalledTime <= _wallCoyoteTime);
             return canUseCoyote;
         }
 
@@ -256,42 +267,42 @@ namespace Assets.Scripts.Creatures
 
         private bool HasBufferedJump()
         {
-            return (Time.time - lastJumpTime <= jumpBufferTime);
+            return (Time.time - LastJumpTime <= _jumpBufferTime);
         }
 
         private bool IsHeldingJumpInput()
         {
-            return (jumpInput == 1);
+            return (JumpInput == 1);
         }
 
         private bool IsJumping()
         {
-            return (_frameVelocity.y > 0f && !_endedJumpEarly);
+            return (_frameVelocity.y > 0f && !EndedJumpEarly);
         }
 
         private void HandleGravity()
         {
             if (_direction.IsGrounded && _frameVelocity.y <= 0f)
             {
-                _frameVelocity.y = GroundingForce;
+                _frameVelocity.y = _groundingForce;
             }
             else if (_direction.IsCeiling)
             {
-                _frameVelocity.y = -CeilingBoundingForce;
+                _frameVelocity.y = -_ceilingBoundingForce;
             }
-            else if(IsJumping() && _isHighJumping) //grand saut
+            else if(IsJumping() && IsHighJumping) //grand saut
             {
-                _frameVelocity.y = Mathf.MoveTowards(_frameVelocity.y, 0, jumpDeltaTime * Time.fixedDeltaTime);
+                _frameVelocity.y = Mathf.MoveTowards(_frameVelocity.y, 0, _jumpDeltaTime * Time.fixedDeltaTime);
 
             }
-            else if(IsJumping() && _endedJumpEarly) //petit saut
+            else if(IsJumping() && EndedJumpEarly) //petit saut
             {
-                _frameVelocity.y = Mathf.MoveTowards(_frameVelocity.y, 0, jumpEndedEarlyDeltaTime * Time.fixedDeltaTime);
+                _frameVelocity.y = Mathf.MoveTowards(_frameVelocity.y, 0, _jumpEndedEarlyDeltaTime * Time.fixedDeltaTime);
             }
-            else if(!IsDashing() && enableGravity) //fall 
+            else if(!IsDashing && EnableGravity) //fall 
             {
-                float MaxFallSpeed = (IsWallRiding()) ? WallRideMaxFallSpeed: FreeMaxFallSpeed;
-                _frameVelocity.y = Mathf.MoveTowards(_frameVelocity.y, -MaxFallSpeed, FallDeltaTime * Time.fixedDeltaTime);
+                float MaxFallSpeed = (IsWallRiding()) ? _wallRideMaxFallSpeed: _freeMaxFallSpeed;
+                _frameVelocity.y = Mathf.MoveTowards(_frameVelocity.y, -MaxFallSpeed, _fallDeltaTime * Time.fixedDeltaTime);
             }
         }
 
@@ -300,20 +311,20 @@ namespace Assets.Scripts.Creatures
 
         public void OnMainAction(InputAction.CallbackContext context)
         {
-            if (lastTimeMainAction < Time.time - mainActionCooldown)
+            if (LastTimeMainAction < Time.time - _mainActionCooldown)
             {
-                lastTimeMainAction = Time.time;
+                LastTimeMainAction = Time.time;
                 PlayMainActionAnimation();
             }
         }
 
         public void PlayMainActionAnimation()
         {
-            if(!_direction.IsGrounded && axisY == -1)
+            if(!_direction.IsGrounded && AxisY == -1)
             {
                 _animator.SetTrigger(AnimationString.MAINACTIONDOWN);
             }
-            else if(axisY == 1) 
+            else if(AxisY == 1) 
             {
                 _animator.SetTrigger(AnimationString.MAINACTIONUP);
             }
@@ -331,16 +342,16 @@ namespace Assets.Scripts.Creatures
         {
             if (knockback.x != 0) {
                 _frameVelocity.x = (-knockback.x * backlashForce);
-                isDashing = true;
-                lastDashTime = Time.time;
-                dashTimer = backlashDashTimer;
-                enableGravity = false;
+                IsDashing = true;
+                LastDashTime = Time.time;
+                DashTimer = _backlashDashTimer;
+                EnableGravity = false;
                 CanFlipSprite = false;
             }
             else if (knockback.y == -1)
             {
-                Jump(PogoJumpForce);
-                _isHighJumping = false;
+                Jump(_pogoJumpForce);
+                IsHighJumping = false;
                 CanDoubleJump = true;
             }
 
@@ -353,10 +364,10 @@ namespace Assets.Scripts.Creatures
             {
                 int direction = (LastWeaponBeenAttackBy.transform.position.x < gameObject.transform.position.x) ? -1 : 1;
                 _frameVelocity = new Vector2(50 * direction, 50);
-                isDashing = true;
-                lastDashTime = Time.time;
-                dashTimer = backlashDashTimer;
-                enableGravity = false;
+                IsDashing = true;
+                LastDashTime = Time.time;
+                DashTimer = _backlashDashTimer;
+                EnableGravity = false;
                 CanFlipSprite = false;
                 ApplyMovement();
 

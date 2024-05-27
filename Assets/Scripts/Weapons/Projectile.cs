@@ -13,6 +13,8 @@ namespace Assets.Scripts.Weapons
     {
         public UnityEvent<float, Vector2> backLash;
 
+        public ProjectileData projectileData;
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             Effect(collision);

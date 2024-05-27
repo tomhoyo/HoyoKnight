@@ -21,15 +21,8 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     List<GameObject> _healthPoints = new List<GameObject>{};
 
-    private void Awake()
-    {
-        Debug.Log("HealthBar Awake");
-    }
-
     public void UpdateHealthBar(float health)
     {
-        Debug.Log("HealthBar UpdateHealthBar");
-
         if (Health != health)
         {
             Health = health;
@@ -39,8 +32,6 @@ public class HealthBar : MonoBehaviour
 
     private void ModifyHealth()
     {
-        Debug.Log("HealthBar ModifyHealth");
-
         foreach (GameObject healthPoint in _healthPoints)
         {
             healthPoint.GetComponent<Animator>().SetBool(AnimationString.HASHEALTHPOINT, true);
@@ -55,8 +46,6 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateMaxHealthBar(float maxHealth)
     {
-        Debug.Log("HealthBar UpdateMaxHealthBar");
-
         if (MaxHealth != maxHealth)
         {
             MaxHealth = maxHealth;
@@ -66,8 +55,6 @@ public class HealthBar : MonoBehaviour
 
     private void ModifyMaxHealth()
     {
-        Debug.Log("HealthBar ModifyMaxHealth");
-
         if (MaxHealth > _healthPoints.Count )
         {
             int healthPointToAdd = (int) (MaxHealth - _healthPoints.Count);

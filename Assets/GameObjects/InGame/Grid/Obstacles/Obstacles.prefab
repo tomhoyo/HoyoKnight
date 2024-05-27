@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 781751032835738242}
   - component: {fileID: 3366083753325495926}
   - component: {fileID: 2412880829217639422}
-  - component: {fileID: 2148634999039273794}
   - component: {fileID: 1063018953785155291}
   m_Layer: 9
   m_Name: Obstacles
@@ -669,21 +668,6 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 7678940248774286749}
---- !u!114 &2148634999039273794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7678940248774286749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90a437e2fc2a1174996ce147bc26723f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backLash:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1063018953785155291
 MonoBehaviour:
   m_ObjectHideFlags: 0
