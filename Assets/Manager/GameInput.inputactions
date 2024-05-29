@@ -33,7 +33,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MainAction",
+                    "name": "UseWeapon",
                     "type": "Button",
                     "id": "15f6034b-bd23-4e9b-b3cd-31aba6eefad8",
                     "expectedControlType": "Button",
@@ -70,7 +70,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "MainAction",
+                    "action": "UseWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

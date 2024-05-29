@@ -38,12 +38,18 @@ namespace Assets.Scripts.InputActions
 
         public void OnUseWeapon(InputAction.CallbackContext context)
         {
-            EventUseWeapon?.Invoke();
+            if (context.ReadValue<float>() == 1)
+            {
+                EventUseWeapon?.Invoke();
+            }
         }
 
         public void OnDash(InputAction.CallbackContext context)
         {
-            EventDash?.Invoke();
+            if (context.ReadValue<float>() == 1)
+            {
+                EventDash?.Invoke();
+            }
         }
     }
 }
