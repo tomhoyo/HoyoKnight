@@ -1,12 +1,10 @@
 ﻿
 
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Assets.Scripts.StringConstant;
-using System.Runtime.CompilerServices;
-using Assets.Scripts.Weapons;
+using Assets.Scripts.InputActions;
 
 
 namespace Assets.Scripts.Creatures
@@ -23,11 +21,9 @@ namespace Assets.Scripts.Creatures
         //collision detection
         private TouchingDirections _direction;
 
-        //input
-        private float _axisX, _axisY, _jumpInput;
-        public float AxisX { get { return _axisX; } private set { _axisX = value; } }
-        public float AxisY { get { return _axisY; } private set { _axisY = value; } }
-        public float JumpInput { get { return _jumpInput; } private set { _jumpInput = value; } }
+        //InputListener
+        [SerializeField]
+        private InputListener _inputListener;
 
         //Double jump
         private bool _canDoubleJump = true;
@@ -61,11 +57,6 @@ namespace Assets.Scripts.Creatures
         //Backlash
         private const float _backlashDashTimer = 0.1f;
         private const float _pogoJumpForce = 80;
-
-        //MainAction
-        private const float _mainActionCooldown = 0.41f; //hv
-        private float _lastTimeMainAction = 0f;
-        public float LastTimeMainAction { get { return _lastTimeMainAction; } private set { _lastTimeMainAction = value; } }
 
         //jump
         private bool _endedJumpEarly = false;
@@ -150,21 +141,9 @@ namespace Assets.Scripts.Creatures
             _frameVelocity.x = _airDashPower * Sense;
         }
 
-        public void OnDash(InputAction.CallbackContext context)
+        public void OnDash()
         {
             if (ActionLastDashTime < Time.time - _airDashCooldown) Dash();
-        }
-
-        public void OnHorizontalMove(InputAction.CallbackContext context)
-        {
-            Debug.Log("OnHorizontalMove");
-
-            AxisX = context.ReadValue<float>();
-        }
-
-        public void OnVerticalMove(InputAction.CallbackContext context)
-        {
-            AxisY = context.ReadValue<float>();
         }
 
         private void HandleDirection()
@@ -179,7 +158,7 @@ namespace Assets.Scripts.Creatures
             }
             else
             {
-                _frameVelocity.x = AxisX * _maxSpeed;
+                _frameVelocity.x = _inputListener.AxisX * _maxSpeed;
             }
         }
 
@@ -188,14 +167,10 @@ namespace Assets.Scripts.Creatures
             return LastDashTime < Time.time - DashTimer;
         }
 
-        public void OnJump(InputAction.CallbackContext context)
+        public void OnJump()
         {
-            JumpInput = context.ReadValue<float>();
-            if (JumpInput == 1)
-            {
                 if (!IsJumping()) LastJumpTime = Time.time;
                 JumpToConsume = true;
-            }
         }
 
         private void HandleJump()
@@ -272,7 +247,7 @@ namespace Assets.Scripts.Creatures
 
         private bool IsHeldingJumpInput()
         {
-            return (JumpInput == 1);
+            return (_inputListener.JumpInput == 1);
         }
 
         private bool IsJumping()
@@ -307,36 +282,6 @@ namespace Assets.Scripts.Creatures
         }
 
         private void ApplyMovement() => _rb.velocity = _frameVelocity;
-
-
-        public void OnMainAction(InputAction.CallbackContext context)
-        {
-            if (LastTimeMainAction < Time.time - _mainActionCooldown)
-            {
-                LastTimeMainAction = Time.time;
-                PlayMainActionAnimation();
-            }
-        }
-
-        public void PlayMainActionAnimation()
-        {
-            if(!_direction.IsGrounded && AxisY == -1)
-            {
-                _animator.SetTrigger(AnimationString.MAINACTIONDOWN);
-            }
-            else if(AxisY == 1) 
-            {
-                _animator.SetTrigger(AnimationString.MAINACTIONUP);
-            }
-            else if(Sense == -1) 
-            {
-                _animator.SetTrigger(AnimationString.MAINACTIONLEFT);
-            }
-            else
-            {
-                _animator.SetTrigger(AnimationString.MAINACTIONRIGHT);
-            }
-        }
 
         public void Backlash(float backlashForce, Vector2 knockback)
         {

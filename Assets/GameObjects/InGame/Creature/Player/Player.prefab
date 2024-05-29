@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1062756152467022511}
   - component: {fileID: 2396469291352422108}
   - component: {fileID: 8455482413673965106}
+  - component: {fileID: 8005635170006289132}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -314,6 +315,7 @@ MonoBehaviour:
   _rb: {fileID: 1635775470413107219}
   _animator: {fileID: 3326140179092468831}
   _spriteRenderer: {fileID: 2081223989418907608}
+  _inputListener: {fileID: 8005635170006289132}
 --- !u!114 &2396469291352422108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,7 +349,7 @@ MonoBehaviour:
   EventHealthModified:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7864136937940363137, guid: 6089cf6d74824d74c868c64c287a21b9, type: 3}
         m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
         m_MethodName: UpdateHealthBar
         m_Mode: 0
@@ -362,7 +364,7 @@ MonoBehaviour:
   EventMaxHealthModified:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7864136937940363137, guid: 6089cf6d74824d74c868c64c287a21b9, type: 3}
         m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
         m_MethodName: UpdateMaxHealthBar
         m_Mode: 0
@@ -389,6 +391,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8005635170006289132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141041275005331964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f29560cd71da046ad387d17b58241f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventHorizontalMove:
+    m_PersistentCalls:
+      m_Calls: []
+  EventVerticalMove:
+    m_PersistentCalls:
+      m_Calls: []
+  EventJump:
+    m_PersistentCalls:
+      m_Calls: []
+  EventUseWeapon:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &9013806561257372977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -397,6 +423,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5922748225758479682}
     m_Modifications:
+    - target: {fileID: -4307292351016242067, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 3326140179092468831}
+    - target: {fileID: -4307292351016242067, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
+      propertyPath: _direction
+      value: 
+      objectReference: {fileID: 2396469291352422108}
+    - target: {fileID: -4307292351016242067, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
+      propertyPath: _inputListener
+      value: 
+      objectReference: {fileID: 8005635170006289132}
+    - target: {fileID: -4307292351016242067, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 2081223989418907608}
     - target: {fileID: 87747437991270707, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
       propertyPath: backLash.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

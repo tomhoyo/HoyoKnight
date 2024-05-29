@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d70db304d36d64d985ab5a1e6462fa, type: 3}
-  m_Name: Feather
+  m_Script: {fileID: 11500000, guid: 868be9d2082f0e248a7870ddb56ae62b, type: 3}
+  m_Name: FeatherData
   m_EditorClassIdentifier: 

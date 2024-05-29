@@ -12,5 +12,6 @@ namespace Assets.Scripts.Weapons
     {
         public float damage;
         public float backlashForce;
+        public Vector2 direction;
     }
 }
