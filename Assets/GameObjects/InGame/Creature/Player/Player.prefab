@@ -199,7 +199,7 @@ MonoBehaviour:
   _rb: {fileID: 1635775470413107219}
   _animator: {fileID: 3326140179092468831}
   _spriteRenderer: {fileID: 2081223989418907608}
-  _inputListener: {fileID: 0}
+  _inputListener: {fileID: 4321505807064653853, guid: e84283adf635e804ca7bf731bc1acc34, type: 3}
 --- !u!114 &2396469291352422108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee078d38a284dd44b00e3eae9e5dfd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureData: {fileID: 0}
+  creatureData: {fileID: 11400000, guid: bfde957e914f7744391fbb23467e1eb1, type: 2}
   animator: {fileID: 3326140179092468831}
   EventHealthModified:
     m_PersistentCalls:

@@ -1473,6 +1473,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1960929479}
     - target: {fileID: 4265203434970540905, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.41
@@ -1531,29 +1535,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2428314524179251696, guid: e84283adf635e804ca7bf731bc1acc34, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2428314524179251696, guid: e84283adf635e804ca7bf731bc1acc34, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2428314524179251696, guid: e84283adf635e804ca7bf731bc1acc34, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2428314524179251696, guid: e84283adf635e804ca7bf731bc1acc34, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2428314524179251696, guid: e84283adf635e804ca7bf731bc1acc34, type: 3}
-      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      propertyPath: m_DefaultActionMap
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2428314524179251696, guid: e84283adf635e804ca7bf731bc1acc34, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1960929479}
+    - target: {fileID: 2428314524179251696, guid: e84283adf635e804ca7bf731bc1acc34, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseChangeState
+      objectReference: {fileID: 0}
     - target: {fileID: 4321505807064653853, guid: e84283adf635e804ca7bf731bc1acc34, type: 3}
       propertyPath: EventDash.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
