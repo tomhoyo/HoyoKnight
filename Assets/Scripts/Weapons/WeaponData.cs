@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Weapons
 {
@@ -11,6 +6,7 @@ namespace Assets.Scripts.Weapons
     internal class WeaponData : ScriptableObject
     {
         [SerializeField]
-        public float WeaponCooldown = 0.0f; //hv
+        private float _weaponCooldown = 0.0f;
+        public float WeaponCooldown { get { return _weaponCooldown;  } private set { _weaponCooldown = value;  } }
     }
 }

@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Scripts.Creatures;
-using Unity.VisualScripting;
+﻿using Assets.Scripts.Creatures;
 using UnityEngine;
 
 namespace Assets.Scripts.Weapons
 {
     internal class StaticProjectile : Projectile
     {
-
-        public Vector2 direction;
+       
 
         public override void Effect(Collider2D collision)
         {
@@ -20,14 +13,9 @@ namespace Assets.Scripts.Weapons
 
             if (hitable != null)
             {
-                hitable.Hit(gameObject, projectileData.damage);
-                Backlash();
+                hitable.Hit(gameObject, ProjectileData.Damage);
             }
         }
 
-        private void Backlash()
-        {
-            backLash?.Invoke(projectileData.backlashForce, direction);
-        }
     }
 }

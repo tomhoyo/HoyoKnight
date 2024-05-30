@@ -1,10 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using Assets.Scripts.StringConstant;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class HealthBar : MonoBehaviour

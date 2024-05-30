@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3326140179092468831}
   - component: {fileID: 1062756152467022511}
   - component: {fileID: 2396469291352422108}
-  - component: {fileID: 8455482413673965106}
+  - component: {fileID: 3424447915798086718}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -196,10 +196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c401d2d23982e45ba303906479df01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 1635775470413107219}
-  _animator: {fileID: 3326140179092468831}
-  _spriteRenderer: {fileID: 2081223989418907608}
-  _inputListener: {fileID: 4321505807064653853, guid: e84283adf635e804ca7bf731bc1acc34, type: 3}
 --- !u!114 &2396469291352422108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +212,7 @@ MonoBehaviour:
   _isRightWalled: 0
   _isLeftWalled: 0
   _isCeiling: 0
---- !u!114 &8455482413673965106
+--- !u!114 &3424447915798086718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,56 +221,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 4141041275005331964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ee078d38a284dd44b00e3eae9e5dfd9, type: 3}
+  m_Script: {fileID: 11500000, guid: 72b20d7ccb8a03a4c86e237a88426c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureData: {fileID: 11400000, guid: bfde957e914f7744391fbb23467e1eb1, type: 2}
-  animator: {fileID: 3326140179092468831}
+  _creatureData: {fileID: 11400000, guid: bfde957e914f7744391fbb23467e1eb1, type: 2}
   EventHealthModified:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7864136937940363137, guid: 6089cf6d74824d74c868c64c287a21b9, type: 3}
-        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: UpdateHealthBar
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   EventMaxHealthModified:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7864136937940363137, guid: 6089cf6d74824d74c868c64c287a21b9, type: 3}
-        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: UpdateMaxHealthBar
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   EventRegisterLastWeaponBeenAttackBy:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1062756152467022511}
-        m_TargetAssemblyTypeName: Assets.Scripts.Creatures.PlayerController, Assembly-CSharp
-        m_MethodName: RegisterLastWeaponBeenAttackBy
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &9013806561257372977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -299,6 +258,10 @@ PrefabInstance:
       propertyPath: backLash.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1062756152467022511}
+    - target: {fileID: 432687167893521442, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
+      propertyPath: _weaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: dfe7c9d5e38dc524785e5163606e5bea, type: 2}
     - target: {fileID: 1754545900155322560, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

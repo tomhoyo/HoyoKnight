@@ -1,20 +1,20 @@
 ﻿
-using System;
 using Assets.Scripts.StringConstant;
-using Assets.Scripts.Weapons;
 using UnityEngine;
 
 namespace Assets.Scripts.Creatures
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(SpriteRenderer))]
-
     public class CreatureController : MonoBehaviour
     {
-        public Rigidbody2D _rb;
+        private Rigidbody2D _rb;
+        public Rigidbody2D Rb { get { return _rb; } set { _rb = value;  } }
 
-        public Animator _animator;
+        private Animator _animator;
+        public Animator Animator { get { return _animator; } set { _animator = value; } }
 
-        public SpriteRenderer _spriteRenderer;
+        private SpriteRenderer _spriteRenderer;
+        public SpriteRenderer SpriteRenderer { get { return _spriteRenderer; } set { _spriteRenderer = value; } }
 
         //direction
         private int _sense = 1;
@@ -27,38 +27,46 @@ namespace Assets.Scripts.Creatures
 
                 if (_sense == -1)
                 {
-                    _spriteRenderer.flipX = true;
+                    SpriteRenderer.flipX = true;
                 }
                 else if (_sense == 1)
                 {
-                    _spriteRenderer.flipX = false;
+                    SpriteRenderer.flipX = false;
                 }
             }
         }
 
+        public void Awake()
+        {
+            Rb = gameObject.GetComponent<Rigidbody2D>();
+            Animator = gameObject.GetComponent<Animator>();
+            SpriteRenderer = gameObject.GetComponent<SpriteRenderer>(); ;
+        }
+        
+
         public bool CanFlipSprite
         {
-            get { return _animator.GetBool(AnimationString.canFlipSprite); }
-            set {_animator.SetBool(AnimationString.canFlipSprite, value); }
+            get { return Animator.GetBool(AnimationString.canFlipSprite); }
+            set {Animator.SetBool(AnimationString.canFlipSprite, value); }
         }
 
         public bool CanMove
         {
             get 
             {
-                return _animator.GetBool(AnimationString.CANMOVE); 
+                return Animator.GetBool(AnimationString.CANMOVE); 
             }
             set 
             { 
-                _animator.SetBool(AnimationString.CANMOVE, value);
+                Animator.SetBool(AnimationString.CANMOVE, value);
                 CanFlipSprite = value;
             }
         }
 
         public bool IsAlive
         {
-            get { return _animator.GetBool(AnimationString.ISALIVE); }
-            set { _animator.SetBool(AnimationString.ISALIVE, value); }
+            get { return Animator.GetBool(AnimationString.ISALIVE); }
+            set { Animator.SetBool(AnimationString.ISALIVE, value); }
         }
 
         public void AllowToMove()
@@ -91,12 +99,12 @@ namespace Assets.Scripts.Creatures
             /*
             * define "HorzontalSpeed" parameter
             */
-            _animator.SetFloat(AnimationString.HORIZONTALSPEED, Mathf.Abs(horizontalMovement));
+            Animator.SetFloat(AnimationString.HORIZONTALSPEED, Mathf.Abs(horizontalMovement));
 
             /*
              * define "VerticalSpeed" parameter
              */
-            _animator.SetFloat(AnimationString.VERTICALSPEED, _rb.velocity.y);
+            Animator.SetFloat(AnimationString.VERTICALSPEED, Rb.velocity.y);
         }
     }
 }

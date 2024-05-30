@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1754545900155322560}
-  - component: {fileID: -4307292351016242067}
+  - component: {fileID: 432687167893521442}
   m_Layer: 7
   m_Name: Feather
   m_TagString: Untagged
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 7030286715628545117}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4307292351016242067
+--- !u!114 &432687167893521442
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,14 +45,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7956430971286038489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46b622960be47e44eb125d56e5e4dcda, type: 3}
+  m_Script: {fileID: 11500000, guid: 96f9750c51a715a48afbaa5007400f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _direction: {fileID: 0}
-  _animator: {fileID: 0}
-  _inputListener: {fileID: 0}
-  _spriteRenderer: {fileID: 0}
-  WeaponData: {fileID: 11400000, guid: dfe7c9d5e38dc524785e5163606e5bea, type: 2}
 --- !u!1001 &4577826652624239922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,7 +286,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2799313660982555582, guid: 1ff655da58fe0e046a53adc523d9b0b2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

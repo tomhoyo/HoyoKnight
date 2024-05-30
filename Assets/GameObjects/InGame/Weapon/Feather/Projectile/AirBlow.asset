@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502d2dea4106bcb48bcea656d3ad7473, type: 3}
   m_Name: AirBlow
   m_EditorClassIdentifier: 
-  damage: 1
-  backlashForce: 15
+  _damage: 1
+  _backlashForce: 15

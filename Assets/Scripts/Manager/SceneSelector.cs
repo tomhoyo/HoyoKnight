@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Scripts.StringConstant;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,12 +7,12 @@ public class SceneSelector : MonoBehaviour
 {
     public void StartGame()
     {
-        PlayScene(SceneName.TESTGAMEPLAY);
+        PlayScene(ScenesName.TESTGAMEPLAY);
     }
 
     public void MainMenu()
     {
-        PlayScene(SceneName.MAINMENU);
+        PlayScene(ScenesName.MAINMENU);
 
     }
 

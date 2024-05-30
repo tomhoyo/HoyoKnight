@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1574956631232920873}
   - component: {fileID: 7153800090382667724}
-  - component: {fileID: 3114286476078993539}
+  - component: {fileID: 5610977773441825772}
   m_Layer: 7
   m_Name: LeftAttack
   m_TagString: Untagged
@@ -78,7 +78,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9921851, y: 1.6927192}
   m_EdgeRadius: 0
---- !u!114 &3114286476078993539
+--- !u!114 &5610977773441825772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,23 +87,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4490417934439427498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4d03f266e29b904995673b4425543ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ff3d66cf961794082130394d214ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   backLash:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Assets.Scripts.Creatures.PlayerController, Assembly-CSharp
-        m_MethodName: Backlash
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   projectileData: {fileID: 11400000, guid: 70ebe27219b2c44449bf4ec0c0f7d2d1, type: 2}
   direction: {x: -1, y: 0}
+  backLash:
+    m_PersistentCalls:
+      m_Calls: []

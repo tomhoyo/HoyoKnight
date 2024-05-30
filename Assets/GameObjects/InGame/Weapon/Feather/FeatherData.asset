@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868be9d2082f0e248a7870ddb56ae62b, type: 3}
   m_Name: FeatherData
   m_EditorClassIdentifier: 
+  _weaponCooldown: 0.41

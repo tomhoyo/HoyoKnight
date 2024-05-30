@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757e12063ea867d47899c6ca7072ab5f, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  MaxHealth: 5
-  IsAlive: 1
-  InvincibilityTimer: 0.5
+  _maxHealth: 5
+  _isAlive: 1
+  _invincibilityTimer: 0.2

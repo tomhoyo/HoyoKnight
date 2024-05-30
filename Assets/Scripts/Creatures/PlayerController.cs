@@ -1,11 +1,7 @@
-﻿
-
-using System;
+﻿using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Assets.Scripts.StringConstant;
 using Assets.Scripts.InputActions;
-
 
 namespace Assets.Scripts.Creatures
 {
@@ -22,7 +18,6 @@ namespace Assets.Scripts.Creatures
         private TouchingDirections _direction;
 
         //InputListener
-        [SerializeField]
         private InputListener _inputListener;
 
         //Double jump
@@ -88,10 +83,19 @@ namespace Assets.Scripts.Creatures
         private const float _groundingForce = 0;
         private const float _ceilingBoundingForce = 1;
 
-        private void Awake()
+        private new void Awake()
         {
+            base.Awake();
             _direction = GetComponent<TouchingDirections>();
         }
+
+        private void Start()
+        {
+            _inputListener = GameObject.Find(GameObjectsName.INPUTMANAGER).GetComponent<InputListener>();
+
+            _inputListener.EventJump.AddListener(OnJump);
+            _inputListener.EventDash.AddListener(OnDash);
+    }
 
         public void FixedUpdate()
         {
@@ -111,7 +115,7 @@ namespace Assets.Scripts.Creatures
 
         public void Update()
         {
-            SetAnimatorParameters(_rb.velocity.x);
+            SetAnimatorParameters(Rb.velocity.x);
         }
 
         public void HandleCollision()
@@ -135,7 +139,7 @@ namespace Assets.Scripts.Creatures
             EnableGravity = false;
             _frameVelocity.y = 0;
 
-            _animator.SetTrigger(AnimationString.ISDASHING);
+            Animator.SetTrigger(AnimationString.ISDASHING);
 
             if (IsWallRiding()) Sense = GetWallRideSide();
             _frameVelocity.x = _airDashPower * Sense;
@@ -175,7 +179,7 @@ namespace Assets.Scripts.Creatures
 
         private void HandleJump()
         {
-            if (!EndedJumpEarly && !_direction.IsGrounded && !IsHeldingJumpInput() && _rb.velocity.y > 0) EndedJumpEarly = true;
+            if (!EndedJumpEarly && !_direction.IsGrounded && !IsHeldingJumpInput() && Rb.velocity.y > 0) EndedJumpEarly = true;
 
             if (!JumpToConsume && !HasBufferedJump()) return;
 
@@ -281,7 +285,7 @@ namespace Assets.Scripts.Creatures
             }
         }
 
-        private void ApplyMovement() => _rb.velocity = _frameVelocity;
+        private void ApplyMovement() => Rb.velocity = _frameVelocity;
 
         public void Backlash(float backlashForce, Vector2 knockback)
         {
@@ -307,7 +311,7 @@ namespace Assets.Scripts.Creatures
         {
             if (LastWeaponBeenAttackBy != null)
             {
-                int direction = (LastWeaponBeenAttackBy.transform.position.x < gameObject.transform.position.x) ? -1 : 1;
+                int direction = (LastWeaponBeenAttackBy.transform.position.x < gameObject.transform.position.x) ? 1 : -1;
                 _frameVelocity = new Vector2(50 * direction, 50);
                 IsDashing = true;
                 LastDashTime = Time.time;
