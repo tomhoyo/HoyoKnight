@@ -225,6 +225,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _creatureData: {fileID: 11400000, guid: bfde957e914f7744391fbb23467e1eb1, type: 2}
+  _maxHealth: 5
+  _health: 5
+  invincibilityTimer: 0
   EventHealthModified:
     m_PersistentCalls:
       m_Calls: []
@@ -302,6 +305,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4526488976179485991, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
+      propertyPath: _projectileData
+      value: 
+      objectReference: {fileID: 11400000, guid: 70ebe27219b2c44449bf4ec0c0f7d2d1, type: 2}
+    - target: {fileID: 6012817745783421913, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
+      propertyPath: _projectileData
+      value: 
+      objectReference: {fileID: 11400000, guid: 70ebe27219b2c44449bf4ec0c0f7d2d1, type: 2}
     - target: {fileID: 6356628838420002376, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
       propertyPath: backLash.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -314,6 +325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Feather
       objectReference: {fileID: 0}
+    - target: {fileID: 8858403315214957492, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
+      propertyPath: _projectileData
+      value: 
+      objectReference: {fileID: 11400000, guid: 70ebe27219b2c44449bf4ec0c0f7d2d1, type: 2}
     - target: {fileID: 9074005928266786523, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
       propertyPath: backLash.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -321,8 +336,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8920934306359892131, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4459317835518686254}
   m_SourcePrefab: {fileID: 100100000, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
+--- !u!1 &493987707534042514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8920934306359892131, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}
+  m_PrefabInstance: {fileID: 9013806561257372977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4459317835518686254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493987707534042514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ff3d66cf961794082130394d214ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileData: {fileID: 11400000, guid: 70ebe27219b2c44449bf4ec0c0f7d2d1, type: 2}
+  direction: {x: 0, y: -1}
 --- !u!4 &7299806664209006065 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1754545900155322560, guid: e8394e49509d2f8409d1f964574cc1a2, type: 3}

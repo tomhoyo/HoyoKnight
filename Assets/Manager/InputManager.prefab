@@ -47,49 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EventJump:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1062756152467022511, guid: ac4d2c02e0eae1b4a9d62f44093dc65c, type: 3}
-        m_TargetAssemblyTypeName: Assets.Scripts.Creatures.PlayerController, Assembly-CSharp
-        m_MethodName: OnJump
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   EventDash:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1062756152467022511, guid: ac4d2c02e0eae1b4a9d62f44093dc65c, type: 3}
-        m_TargetAssemblyTypeName: Assets.Scripts.Creatures.PlayerController, Assembly-CSharp
-        m_MethodName: OnDash
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   EventUseWeapon:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Assets.Scripts.Weapons.Weapon, Assembly-CSharp
-        m_MethodName: OnUseWeapon
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &7904319552970046034
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -69,6 +69,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _creatureData: {fileID: 11400000, guid: f18a6fd5fff19ed41b85a14664421033, type: 2}
+  _maxHealth: 10
+  _health: 0
+  invincibilityTimer: 0
 --- !u!61 &2237500092232028293
 BoxCollider2D:
   m_ObjectHideFlags: 0
