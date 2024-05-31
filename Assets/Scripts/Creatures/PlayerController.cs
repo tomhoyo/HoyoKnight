@@ -308,7 +308,6 @@ namespace Assets.Scripts.Creatures
             {
                 Jump(_pogoJumpForce);
                 IsHighJumping = false;
-                CanDoubleJump = true;
             }
 
             ApplyMovement();

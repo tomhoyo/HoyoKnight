@@ -3,31 +3,31 @@ using System.Collections.Generic;
 using Assets.Scripts.Creatures;
 using Assets.Scripts.Weapons;
 using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 
 public class NetworkPlayer : NetworkBehaviour
 {
-
-    private PlayerController playerController;    
 
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
 
         //Camera follow
-        GameObject VirtualCamera = GameObject.Find("Virtual Camera");
-        Cinemachine.CinemachineVirtualCamera PlayerCamera = VirtualCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
-        PlayerCamera.Priority = IsOwner ? 1 : 0;
+        GameObject virtualCamera = GameObject.Find("Virtual Camera");
+        Cinemachine.CinemachineVirtualCamera playerCamera = virtualCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
+        playerCamera.Priority = IsOwner ? 1 : 0;
 
         //Player controller
-        GameObject PlayerGameObject = gameObject.transform.GetChild(0).gameObject;
-        PlayerController PlayerController = PlayerGameObject.GetComponent<PlayerController>();
-        PlayerController.enabled = IsOwner;
+        PlayerController playerController = gameObject.GetComponent<PlayerController>();
+        playerController.enabled = IsOwner;
 
         //Player weapon
-        GameObject WeaponGameObject = PlayerGameObject.transform.GetChild(0).gameObject;
-        Weapon Weapon = WeaponGameObject.GetComponent<Weapon>();
-        Weapon.enabled = IsOwner;
+        Weapon weapon = gameObject.transform.GetChild(0).gameObject.GetComponent<Weapon>();
+        weapon.enabled = IsOwner;
 
+        //Player Damage
+        PlayerDamage playerDamage = gameObject.GetComponent<PlayerDamage>();
+        playerDamage.enabled = IsOwner;
     }
 }
