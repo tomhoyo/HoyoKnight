@@ -11,7 +11,7 @@ namespace Assets.Scripts.Network
 {
     internal class SessionAccessManager : MonoBehaviour
     {
-        [SerializeField]
+       /* [SerializeField]
         private TMP_InputField hostIpAddress;
         public String HostIpAddress 
         { 
@@ -19,11 +19,10 @@ namespace Assets.Scripts.Network
             {
                 return hostIpAddress.text;
             } 
-        }
+        }*/
 
         public void StartHost()
         {
-            Debug.Log("StartHost");
             NetworkManager.Singleton.StartHost();
         }
 
@@ -34,7 +33,7 @@ namespace Assets.Scripts.Network
 
         public void StartClient()
         {
-            Debug.Log("StartClient at address : " + HostIpAddress);
+            //Debug.Log("StartClient at address : " + HostIpAddress);
 
             //Before need to validate the address format. and try a ping.
             //NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address = HostIpAddress;
