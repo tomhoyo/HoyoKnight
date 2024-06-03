@@ -9,7 +9,10 @@ namespace Assets.Scripts.Weapons
         private new void Start()
         {
             base.Start();
-            InputListener.EventUseWeapon.AddListener(OnUseWeapon);
+            if (InputListener != null)
+            {
+                InputListener.EventUseWeapon.AddListener(OnUseWeapon);
+            }
         }
 
         public void OnUseWeapon()

@@ -6,6 +6,7 @@ namespace Assets.Scripts.StringConstant
     {
         internal static String HEALTHBAR = "HealthBar";
         internal static String INPUTMANAGER = "InputManager";
-
+        internal static String UIMANAGER = "UIManager";
+        internal static String SCENEMANAGER = "SceneManager";
     }
 }

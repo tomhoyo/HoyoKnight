@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4265203434970540905}
   - component: {fileID: 8189986845344888838}
-  - component: {fileID: 2821925667091812488}
   - component: {fileID: 2842255889629715149}
+  - component: {fileID: 2253961111644033718}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -44,18 +44,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f552658e9cacc844eba8da198a7c77cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2821925667091812488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010447103902171641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8550bcf349720b4ba5f72c1a740cc41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2842255889629715149
@@ -164,19 +152,7 @@ MonoBehaviour:
     m_ActionId: 9f104eb0-1782-4fae-8ab0-b04715ac4f27
     m_ActionName: Player/Dash[/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: PauseChangeState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 03dd2050-ce07-4980-b3b2-fddf660d1437
     m_ActionName: UI/Escape[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
@@ -184,3 +160,15 @@ MonoBehaviour:
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &2253961111644033718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010447103902171641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9dac693388f394c868bfb1966694f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -92,16 +92,25 @@ namespace Assets.Scripts.Creatures
         private void Start()
         {
             //setup input event
-            _inputListener = GameObject.Find(GameObjectsName.INPUTMANAGER).GetComponent<InputListener>();
-            _inputListener.EventJump.AddListener(OnJump);
-            _inputListener.EventDash.AddListener(OnDash);
+            
+            if (GameObject.Find(GameObjectsName.INPUTMANAGER) != null )
+            {
+                _inputListener = GameObject.Find(GameObjectsName.INPUTMANAGER).GetComponent<InputListener>();
+                _inputListener.EventJump.AddListener(OnJump);
+                _inputListener.EventDash.AddListener(OnDash);
+            }else
+            {
+                CanMove = false;
+            }
+            
 
             //setup camera follow
             GameObject VirtualCamera = GameObject.Find("Virtual Camera");
-            Cinemachine.CinemachineVirtualCamera PlayerCamera = VirtualCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
-            PlayerCamera.Follow = gameObject.transform;
-
-
+            if ( VirtualCamera != null )
+            {
+                Cinemachine.CinemachineVirtualCamera PlayerCamera = VirtualCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
+                PlayerCamera.Follow = gameObject.transform;
+            }
         }
 
         public void FixedUpdate()

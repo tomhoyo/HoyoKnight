@@ -2,6 +2,7 @@
 using UnityEngine;
 using Assets.Scripts.Creatures;
 using Assets.Scripts.InputActions;
+using System;
 
 namespace Assets.Scripts.Weapons
 {

@@ -36,9 +36,12 @@ namespace Assets.Scripts.Creatures
         {
             //HealthBar
             GameObject HealthBar = GameObject.Find(GameObjectsName.HEALTHBAR);
-            EventHealthModified.AddListener(HealthBar.GetComponent<HealthBar>().UpdateHealthBar);
-            EventMaxHealthModified.AddListener(HealthBar.GetComponent<HealthBar>().UpdateMaxHealthBar);
-
+            if (HealthBar != null)
+            {
+                EventHealthModified.AddListener(HealthBar.GetComponent<HealthBar>().UpdateHealthBar);
+                EventMaxHealthModified.AddListener(HealthBar.GetComponent<HealthBar>().UpdateMaxHealthBar);
+            }
+            
             //KnockBack
             EventRegisterLastWeaponBeenAttackBy.AddListener(gameObject.GetComponent<PlayerController>().RegisterLastWeaponBeenAttackBy);
 

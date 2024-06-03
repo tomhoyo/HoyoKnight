@@ -6,6 +6,8 @@ namespace Assets.Scripts.StringConstant
     {
         internal static String TESTGAMEPLAY = "TestGameplay";
         internal static String MAINMENU = "MainMenu";
+        internal static String LOBBY = "Lobby";
+
 
 
     }

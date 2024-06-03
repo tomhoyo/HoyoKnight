@@ -9,6 +9,7 @@ namespace Assets.Scripts.InputActions
         public UnityEvent EventJump;
         public UnityEvent EventDash;
         public UnityEvent EventUseWeapon;
+        public UnityEvent EventInteract;
 
 
         private float _axisX, _axisY, _jumpInput;
@@ -30,7 +31,7 @@ namespace Assets.Scripts.InputActions
         {
             JumpInput = context.ReadValue<float>();
 
-            if (JumpInput == 1)
+            if (context.phase.Equals(InputActionPhase.Performed))
             {
                 EventJump?.Invoke();
             }
@@ -38,7 +39,7 @@ namespace Assets.Scripts.InputActions
 
         public void OnUseWeapon(InputAction.CallbackContext context)
         {
-            if (context.ReadValue<float>() == 1)
+            if (context.phase.Equals(InputActionPhase.Performed))
             {
                 EventUseWeapon?.Invoke();
             }
@@ -46,9 +47,17 @@ namespace Assets.Scripts.InputActions
 
         public void OnDash(InputAction.CallbackContext context)
         {
-            if (context.ReadValue<float>() == 1)
+            if (context.phase.Equals(InputActionPhase.Performed))
             {
                 EventDash?.Invoke();
+            }
+        }
+
+        public void OnInteract(InputAction.CallbackContext context)
+        {
+            if (context.phase.Equals(InputActionPhase.Performed))
+            {
+                EventInteract?.Invoke();
             }
         }
     }
