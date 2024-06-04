@@ -27,7 +27,7 @@ namespace Assets.Scripts.Network
             Solo,
             Host,
             Client            
-        } 
+        }
 
         /* [SerializeField]
          private TMP_InputField hostIpAddress;
@@ -39,10 +39,20 @@ namespace Assets.Scripts.Network
              } 
          }*/
 
-        public void Start()
+        private static SessionAccessManager instance = null;
+        public static SessionAccessManager Instance => instance;
+        private void Awake()
         {
-            StartSolo();
-            gameObject.GetComponent<Menu>().HidePanel();
+            if (instance != null && instance != this)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+            else
+            {
+                instance = this;
+            }
+            DontDestroyOnLoad(gameObject);
         }
 
         public void ChangePlayMode(playModes mode)
@@ -61,6 +71,8 @@ namespace Assets.Scripts.Network
 
                 switch (mode)
                 {
+                    case playModes.None:
+                        break;
                     case playModes.Solo:
                         player = Instantiate(playerPrefab);
                         break;
@@ -80,6 +92,12 @@ namespace Assets.Scripts.Network
                 PlayMode = mode;
 
             }
+        }
+
+        public void StartNone()
+        {
+            ChangePlayMode(playModes.None);
+
         }
 
         public void StartSolo()

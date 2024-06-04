@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5884054386914788251}
-  - component: {fileID: 4321505807064653853}
+  - component: {fileID: 5812157521816684971}
   - component: {fileID: 7904319552970046034}
   m_Layer: 0
   m_Name: InputManager
@@ -33,7 +33,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4321505807064653853
+--- !u!114 &5812157521816684971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,6 +52,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   EventUseWeapon:
+    m_PersistentCalls:
+      m_Calls: []
+  EventInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &7904319552970046034
@@ -81,7 +84,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4321505807064653853}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Assets.Scripts.InputActions.InputListener, Assembly-CSharp
         m_MethodName: OnHorizontalMove
         m_Mode: 0
@@ -97,7 +100,7 @@ MonoBehaviour:
     m_ActionName: Player/HorizontalMove[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4321505807064653853}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Assets.Scripts.InputActions.InputListener, Assembly-CSharp
         m_MethodName: OnVerticalMove
         m_Mode: 0
@@ -113,7 +116,7 @@ MonoBehaviour:
     m_ActionName: Player/VerticalMove[/Keyboard/s,/Keyboard/w]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4321505807064653853}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Assets.Scripts.InputActions.InputListener, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
@@ -129,7 +132,7 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4321505807064653853}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Assets.Scripts.InputActions.InputListener, Assembly-CSharp
         m_MethodName: OnUseWeapon
         m_Mode: 0
@@ -145,7 +148,7 @@ MonoBehaviour:
     m_ActionName: Player/UseWeapon[/Keyboard/leftArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4321505807064653853}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Assets.Scripts.InputActions.InputListener, Assembly-CSharp
         m_MethodName: OnDash
         m_Mode: 0
@@ -163,6 +166,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 03dd2050-ce07-4980-b3b2-fddf660d1437
     m_ActionName: UI/Escape[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Assets.Scripts.InputActions.InputListener, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: eeae22e8-f2bd-437f-ad1b-4e831d485033
+    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

@@ -10,18 +10,17 @@ namespace Assets.Scripts.Manager
         private void Start()
         {
             DontDestroyOnLoad(gameObject);
-            GameObject SceneSelector = GameObject.Find(GameObjectsName.SCENEMANAGER);
+           /* GameObject SceneSelector = GameObject.Find(GameObjectsName.SCENEMANAGER);
 
             if (SceneSelector != null)
             {
                 SceneSelector.GetComponent<SceneSelector>().EventLoadMainMenu.AddListener(Destroy);
-            }
+            }*/
                      
         }
 
         public void Destroy()
         {
-            Debug.Log("Destroy: " + gameObject.name);
             Destroy(gameObject);
         }
 

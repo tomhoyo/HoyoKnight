@@ -2,6 +2,7 @@
 using UnityEngine;
 using Assets.Scripts.StringConstant;
 using Assets.Scripts.InputActions;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Creatures
 {
@@ -111,6 +112,12 @@ namespace Assets.Scripts.Creatures
                 Cinemachine.CinemachineVirtualCamera PlayerCamera = VirtualCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
                 PlayerCamera.Follow = gameObject.transform;
             }
+        }
+
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            Debug.Log("OnSceneLoaded: " + scene.name);
+            Debug.Log(mode);
         }
 
         public void FixedUpdate()

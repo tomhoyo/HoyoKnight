@@ -15,6 +15,21 @@ namespace Assets.Scripts.Manager
         private bool _isGameOnPause = false;
         public bool IsGameOnPause { get { return _isGameOnPause; } private set { _isGameOnPause = value; } }
 
+        private static TimeManager instance = null;
+        public static TimeManager Instance => instance;
+        private void Awake()
+        {
+            if (instance != null && instance != this)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+            else
+            {
+                instance = this;
+            }
+        }
+
         public void TimeStopChangeState()
         {
             if (IsGameOnPause)
