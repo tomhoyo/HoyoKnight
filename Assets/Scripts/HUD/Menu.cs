@@ -1,8 +1,22 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Menu : MonoBehaviour
 {
-    public void MenuChangeState()
+    public void OnMenuChangeState(InputAction.CallbackContext context)
+    {
+        if (context.phase.Equals(InputActionPhase.Performed))
+        {
+            MenuChangeState();
+        }
+    }
+
+    public void OnMenuChangeState()
+    {
+        MenuChangeState();
+    }
+
+    private void MenuChangeState()
     {
         if (gameObject.activeSelf)
         {

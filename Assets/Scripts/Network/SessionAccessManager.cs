@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -13,11 +8,14 @@ namespace Assets.Scripts.Network
     {
         [SerializeField]
         private GameObject networkManagerPrefab;
+        [SerializeField]
         private GameObject networkManager;
         [SerializeField]
         private GameObject playerPrefab;
+        [SerializeField]
         private GameObject player;
 
+        [SerializeField]
         private playModes _playMode = playModes.None;
         public playModes PlayMode { get { return _playMode; } private set {  _playMode = value; } }
 
@@ -57,8 +55,10 @@ namespace Assets.Scripts.Network
 
         public void ChangePlayMode(playModes mode)
         {
+
             if (!PlayMode.Equals(mode))
             {
+
                 if (player != null)
                 {
                     Destroy(player);
@@ -72,26 +72,29 @@ namespace Assets.Scripts.Network
                 switch (mode)
                 {
                     case playModes.None:
+                        PlayMode = playModes.None;
                         break;
                     case playModes.Solo:
                         player = Instantiate(playerPrefab);
+                        PlayMode = playModes.Solo;
                         break;
                     case playModes.Host:
                         networkManager = Instantiate(networkManagerPrefab);
                         NetworkManager.Singleton.StartHost();
+                        PlayMode = playModes.Host;
                         break;
                     case playModes.Client:
                         networkManager = Instantiate(networkManagerPrefab);
                         NetworkManager.Singleton.StartClient();
+                        PlayMode = playModes.Client;
+
                         break;
                     default: 
                         throw new Exception("Play mode doesn't exist");
 
                 }
-
-                PlayMode = mode;
-
             }
+
         }
 
         public void StartNone()

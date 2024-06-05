@@ -5,7 +5,7 @@ public class UIManager : MonoBehaviour
 {
     public void OnExitGame(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if(context.phase.Equals(InputActionPhase.Performed))
         {
             ExitGame();
         }

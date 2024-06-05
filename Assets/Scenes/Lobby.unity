@@ -489,7 +489,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 469463961}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: MenuChangeState
+        m_MethodName: OnMenuChangeState
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1125,7 +1125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &802229537
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4103,14 +4103,14 @@ PrefabInstance:
     - target: {fileID: 1347474101192145026, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7605529472172460465, guid: 5dfd6852e02374d4e9f5bf09dc2b6038, type: 3}
+      objectReference: {fileID: 1335639742}
     - target: {fileID: 1347474101192145026, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MainMenu
+      value: HidePanel
       objectReference: {fileID: 0}
     - target: {fileID: 1347474101192145026, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneSelector, Assembly-CSharp
+      value: Menu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1347474101192145026, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4361,7 +4361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -4381,7 +4381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MenuChangeState
+      value: OnMenuChangeState
       objectReference: {fileID: 0}
     - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4628,7 +4628,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 802229541}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: MenuChangeState
+        m_MethodName: OnMenuChangeState
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

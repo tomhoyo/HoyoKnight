@@ -37,7 +37,6 @@ public class SceneSelector : MonoBehaviour
 
     public void MainMenu()
     {
-        //EventLoadMainMenu?.Invoke();
         GameObject.Find(GameObjectsName.LOBBYMANAGER).GetComponent<SessionAccessManager>().StartNone();
         PlayScene(ScenesName.MAINMENU);
     }
@@ -45,8 +44,6 @@ public class SceneSelector : MonoBehaviour
     public void LoadLobby()
     {
         PlayScene(ScenesName.LOBBY);
-        GameObject.Find(GameObjectsName.LOBBYMANAGER).GetComponent<SessionAccessManager>().StartSolo();
-
     }
 
     public void PlayScene(String scene)

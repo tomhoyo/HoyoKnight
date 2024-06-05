@@ -725,19 +725,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1347474101192145026, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1347474101192145026, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8902103221710522555}
+      objectReference: {fileID: 7605529472172460465, guid: 5dfd6852e02374d4e9f5bf09dc2b6038, type: 3}
     - target: {fileID: 1347474101192145026, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 7605529472172460465, guid: 5dfd6852e02374d4e9f5bf09dc2b6038, type: 3}
     - target: {fileID: 1347474101192145026, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 1347474101192145026, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -745,7 +745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1347474101192145026, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Assets.Scripts.Manager.TimeManager, Assembly-CSharp
+      value: SceneSelector, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1347474101192145026, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -937,7 +937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642735462833007336, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8642735462833007336, guid: e67625d6b9f6f0c4cb2959f4a66faddb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -1599,12 +1599,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: eeae22e8-f2bd-437f-ad1b-4e831d485033
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: Player/Interact[/Keyboard/e]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -1628,7 +1640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MenuChangeState
+      value: OnMenuChangeState
       objectReference: {fileID: 0}
     - target: {fileID: 2842255889629715149, guid: 0c6da03bcf2057c4ebebd1ba321fe0d1, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
