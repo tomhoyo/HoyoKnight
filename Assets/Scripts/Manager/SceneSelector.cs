@@ -7,10 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneSelector : MonoBehaviour
 {
-    //public UnityEvent EventLoadMainMenu;
-
     private static SceneSelector instance = null;
     public static SceneSelector Instance => instance;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -37,7 +36,6 @@ public class SceneSelector : MonoBehaviour
 
     public void MainMenu()
     {
-        GameObject.Find(GameObjectsName.LOBBYMANAGER).GetComponent<SessionAccessManager>().StartNone();
         PlayScene(ScenesName.MAINMENU);
     }
 

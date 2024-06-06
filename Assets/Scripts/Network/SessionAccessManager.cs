@@ -91,16 +91,13 @@ namespace Assets.Scripts.Network
                         break;
                     default: 
                         throw new Exception("Play mode doesn't exist");
-
                 }
             }
-
         }
 
         public void StartNone()
         {
             ChangePlayMode(playModes.None);
-
         }
 
         public void StartSolo()
@@ -111,7 +108,6 @@ namespace Assets.Scripts.Network
         public void StartHost()
         {
             ChangePlayMode(playModes.Host);
-
         }
 
         public void StartClient()
