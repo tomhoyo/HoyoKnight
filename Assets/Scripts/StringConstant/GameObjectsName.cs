@@ -9,5 +9,8 @@ namespace Assets.Scripts.StringConstant
         internal static String UIMANAGER = "UIManager";
         internal static String SCENEMANAGER = "SceneManager";
         internal static String LOBBYMANAGER = "LobbyManager";
+        internal static String GROUPCREATOR = "GroupCreator";
+        internal static String IPADDRESSINPUTAREA = "IpAddressInputArea";
+
     }
 }

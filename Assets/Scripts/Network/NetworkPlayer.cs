@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Scripts.Creatures;
 using Assets.Scripts.Weapons;
 using Unity.Netcode;
-using Unity.Netcode.Components;
 using UnityEngine;
 
 public class NetworkPlayer : NetworkBehaviour

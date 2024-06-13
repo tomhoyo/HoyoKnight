@@ -2,6 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+
 namespace Assets.Scripts.InputActions
 {
     internal class InputListener : MonoBehaviour
